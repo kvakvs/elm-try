@@ -1,7 +1,15 @@
+.PHONY: run1
+run1:
+	elm reactor
+
+.PHONY: run2
+run2:
+	npm run dev
+
 .PHONY: build
 build:
-	npm run build
+	elm-make src/Main.elm --output out/Main.html
 
-.PHONY: run
-run:
-	npm run dev
+.PHONY: release
+release:
+	npm run build

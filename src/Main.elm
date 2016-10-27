@@ -1,12 +1,15 @@
-import Html.App as App
+module Main exposing (..)
 
-import View exposing (view)
-import Update exposing (update)
-import Model exposing (model)
+import Html.App as App
+import MLView exposing (ml_view)
+import MLUpdate exposing (ml_update)
+import MLModel exposing (ml_model_init)
+
 
 main =
-  App.beginnerProgram
-    { model = model
-    , view = view
-    , update = update
-    }
+    App.program
+        { init = ml_model_init
+        , view = ml_view
+        , update = ml_update
+        , subscriptions = \_ -> Sub.none
+        }
