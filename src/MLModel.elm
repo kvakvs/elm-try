@@ -1,25 +1,19 @@
-module MLModel exposing (ml_model_init, MLModel)
+module MLModel exposing (ml_model_init, Model)
 
 import MLMsg
+import Megaload
 
 
-type alias MLModel =
-    { name : String
-    , password : String
-    , passwordAgain : String
+type alias Model =
+    { node_families : List Megaload.NodeFamily
     }
 
 
-ml_model : MLModel
-ml_model =
-    { name = "", password = "", passwordAgain = "" }
-
-
-empty_model : MLModel
+empty_model : Model
 empty_model =
-    { name = "", password = "", passwordAgain = "" }
+    { node_families = [] }
 
 
-ml_model_init : ( MLModel, Cmd MLMsg.Msg )
+ml_model_init : ( Model, Cmd MLMsg.Msg )
 ml_model_init =
     empty_model ! []

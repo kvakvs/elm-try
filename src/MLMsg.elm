@@ -2,6 +2,6 @@ module MLMsg exposing (Msg(..))
 
 
 type Msg
-    = Name String
-    | Password String
-    | PasswordAgain String
+    = M_Nothing
+    | M_APIError
+    | M_API_NodeFamilies
