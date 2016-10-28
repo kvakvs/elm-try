@@ -3,23 +3,14 @@ module API.Topo exposing (get_node_families)
 import Task exposing (Task, andThen)
 import Http
 import Json.Decode as Decode
+
 import Megaload
+import MLMsg
 
 
 api_topo : String
 api_topo =
     "http://localhost:8080/api/topo"
-
-
-
--- decoder_node_families =
-
-
-port get_node_families : Signal List Megaload.NodeFamily
-port get_node_families =
-    Http.send Http.defaultSettings make_request_get_nf
-        |> Task.map ServerResponse
-
 
 make_request_get_nf : Http.Request
 make_request_get_nf =
@@ -36,6 +27,13 @@ make_request_get_nf =
         , body = Http.empty
         }
 
+get_node_families_do : a -> Task Http.RawError Http.Response
+get_node_families_do a =
+    Http.send Http.defaultSettings make_request_get_nf
 
+--        |> Task.mapError raw_error_to_error
 
--- Http.get decoder_node_families api_topo ++ "/node-family"
+get_node_families : Task Http.Error Megaload.NodeFamilyList
+get_node_families =
+    get_node_families_do
+        |> Task.perform MLMsg.M_Nothing MLMsg.M_API_NodeFamilies

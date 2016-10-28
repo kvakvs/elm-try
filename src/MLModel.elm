@@ -16,4 +16,4 @@ empty_model =
 
 ml_model_init : ( Model, Cmd MLMsg.Msg )
 ml_model_init =
-    empty_model ! []
+    ( empty_model, Cmd.none )

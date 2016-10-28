@@ -1,15 +1,26 @@
 module Main exposing (..)
 
 import Html.App as App
+import Mouse
+import Keyboard
+
 import MLView exposing (ml_view)
 import MLUpdate exposing (ml_update)
-import MLModel exposing (ml_model_init)
+import MLModel
+import MLMsg
 
 
 main =
     App.program
-        { init = ml_model_init
+        { init = MLModel.ml_model_init
         , view = ml_view
         , update = ml_update
-        , subscriptions = \_ -> Sub.none
+        , subscriptions = ml_subscriptions
         }
+
+ml_subscriptions : MLModel.Model -> Sub MLMsg.Msg
+ml_subscriptions model =
+    Sub.batch
+        [ Mouse.clicks MLMsg.MouseMsg
+        , Keyboard.downs MLMsg.KeyMsg
+        ]

@@ -25,6 +25,5 @@ type alias NodeFamily =
     }
 
 
-
--- type alias Nodes =
---     { families : List NodeFamily }
+type alias NodeFamilyList =
+    List NodeFamily
