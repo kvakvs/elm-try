@@ -5,8 +5,7 @@ import Megaload
 
 
 type alias Model =
-    { node_families : List Megaload.NodeFamily
-    }
+    { node_families : List Megaload.NodeFamily }
 
 
 empty_model : Model

@@ -1,5 +1,6 @@
 module MLMsg exposing (Msg(..))
 
+import Http
 import Mouse
 import Keyboard
 import Megaload
@@ -7,7 +8,6 @@ import Megaload
 
 type Msg
     = M_Nothing
-    | M_APIError
-    | M_API_NodeFamilies Megaload.NodeFamilyList
+    | M_API_NodeFamilies (Maybe Megaload.NodeFamilyList)
     | MouseMsg Mouse.Position
     | KeyMsg Keyboard.KeyCode

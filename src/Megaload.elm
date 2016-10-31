@@ -21,7 +21,7 @@ type alias NodeFamily =
     { id : String
     , name : String
     , description : String
-    , node_selection : NodeSelectionStrategy
+--    , node_selection : NodeSelectionStrategy
     }
 
 

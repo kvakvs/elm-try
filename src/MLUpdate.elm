@@ -10,10 +10,7 @@ ml_update msg model =
         MLMsg.M_Nothing ->
             ( model, Cmd.none )
 
-        MLMsg.M_APIError ->
-            ( model, Cmd.none )
-
-        MLMsg.M_API_NodeFamilies nf ->
+        MLMsg.M_API_NodeFamilies maybe_nf ->
             ( model, Cmd.none )
 
         MLMsg.MouseMsg pos ->
@@ -21,18 +18,3 @@ ml_update msg model =
 
         MLMsg.KeyMsg key ->
             ( model, Cmd.none )
-
-
-
--- case msg of
---     MLMsg.Name name ->
---         { model | name = name }
---             ! []
---
---     MLMsg.Password password ->
---         { model | password = password }
---             ! []
---
---     MLMsg.PasswordAgain password ->
---         { model | passwordAgain = password }
---             ! []

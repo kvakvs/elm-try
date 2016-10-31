@@ -10,8 +10,7 @@ import MLModel
 import MLMsg
 
 
-main =
-    App.program
+main = App.program
         { init = MLModel.ml_model_init
         , view = ml_view
         , update = ml_update
